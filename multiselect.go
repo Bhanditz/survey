@@ -21,7 +21,7 @@ for them to select using the arrow keys and enter. Response type is a slice of s
 	survey.AskOne(prompt, &days, nil)
 */
 type MultiSelect struct {
-	core.Renderer
+	Renderer
 	Message       string
 	Options       []string
 	Default       []string

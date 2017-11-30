@@ -9,6 +9,11 @@ import (
 // PageSize is the default maximum number of items to show in select/multiselect prompts
 var PageSize = 7
 
+type Renderer interface {
+	Error(error) error
+	Render(string, interface{}) error
+}
+
 // Validator is a function passed to a Question after a user has provided a response.
 // If the function returns an error, then the user will be prompted again for another
 // response.

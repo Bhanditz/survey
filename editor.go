@@ -25,7 +25,7 @@ Response type is a string.
 	survey.AskOne(prompt, &message, nil)
 */
 type Editor struct {
-	core.Renderer
+	Renderer
 	Message       string
 	Default       string
 	Help          string

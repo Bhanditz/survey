@@ -11,7 +11,7 @@ import (
 
 // Confirm is a regular text input that accept yes/no answers. Response type is a bool.
 type Confirm struct {
-	core.Renderer
+	Renderer
 	Message string
 	Default bool
 	Help    string

@@ -20,7 +20,7 @@ for them to select using the arrow keys and enter. Response type is a string.
 	survey.AskOne(prompt, &color, nil)
 */
 type Select struct {
-	core.Renderer
+	Renderer
 	Message       string
 	Options       []string
 	Default       string

@@ -16,7 +16,7 @@ and accepts the input with the enter key. Response type is a string.
 	survey.AskOne(prompt, &name, nil)
 */
 type Input struct {
-	core.Renderer
+	Renderer
 	Message string
 	Default string
 	Help    string
