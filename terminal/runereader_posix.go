@@ -10,7 +10,6 @@ package terminal
 
 import (
 	"bufio"
-	"fmt"
 	"os"
 	"syscall"
 	"unsafe"
@@ -61,9 +60,9 @@ func (rr *RuneReader) ReadRune() (rune, int, error) {
 		if err != nil {
 			return r, size, err
 		}
-		if r != '[' && r != 'O' {
-			return r, size, fmt.Errorf("Unexpected Escape Sequence: %q", []rune{'\033', r})
-		}
+		// if r != '[' && r != 'O' {
+		// 	return r, size, fmt.Errorf("Unexpected Escape Sequence: %q", []rune{'\033', r})
+		// }
 		r, size, err = rr.state.buf.ReadRune()
 		if err != nil {
 			return r, size, err
@@ -78,7 +77,9 @@ func (rr *RuneReader) ReadRune() (rune, int, error) {
 		case 'B':
 			return KeyArrowDown, 1, nil
 		}
-		return r, size, fmt.Errorf("Unknown Escape Sequence: %q", []rune{'\033', '[', r})
+		var empty rune
+		return empty, 0, nil
+		//return r, size, fmt.Errorf("Unknown Escape Sequence: %q", []rune{'\033', '[', r})
 	}
 	return r, size, err
 }
