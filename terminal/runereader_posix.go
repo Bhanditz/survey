@@ -60,9 +60,11 @@ func (rr *RuneReader) ReadRune() (rune, int, error) {
 		if err != nil {
 			return r, size, err
 		}
+
 		// if r != '[' && r != 'O' {
 		// 	return r, size, fmt.Errorf("Unexpected Escape Sequence: %q", []rune{'\033', r})
 		// }
+
 		r, size, err = rr.state.buf.ReadRune()
 		if err != nil {
 			return r, size, err
@@ -79,6 +81,8 @@ func (rr *RuneReader) ReadRune() (rune, int, error) {
 		}
 		var empty rune
 		return empty, 0, nil
+
+		// TODO return a standard error that we can read from outside
 		//return r, size, fmt.Errorf("Unknown Escape Sequence: %q", []rune{'\033', '[', r})
 	}
 	return r, size, err
